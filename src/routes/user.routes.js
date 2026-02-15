@@ -51,11 +51,11 @@ router.route("/remove-from-cart/:productId").patch(verifyJWT,removeFromCart);
 
 // Admin
 router.route("/:id").get(verifyJWT, authRoles("admin") ,getCurrentUser);
-router.route("/").get(getUsers);
+router.route("/").get(verifyJWT,getUsers);
 
 
 
 // Developers only routes
-router.route("/register-admin").post(registerAdmin);
+// router.route("/register-admin").post(registerAdmin);
 
 export default router;
