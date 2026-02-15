@@ -82,7 +82,7 @@ const sendEmailVerificationCode = asyncHandler(async (req, res) => {
     if (!user) {
         throw new apiError(404, "User not found ");
     }
-    console.log("Your email verification code is : ", otp);
+    // console.log("Your email verification code is : ", otp);
     return res
     .status(200)
     .json(new apiResponse(200,{},`Verification code has been sent to ${email} `))
