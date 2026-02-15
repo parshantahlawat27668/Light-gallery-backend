@@ -84,8 +84,8 @@ import { sanitizeUser } from "../../utils/sanitizeUser.js";
         const responseUser = sanitizeUser(loggedInUser);
         return res
             .status(200)
-            .cookie("accessToken", accessToken, { httpOnly: true, secure: false, sameSite: "lax", maxAge: 30 * 60 * 1000 })
-            .cookie("refreshToken", refreshToken, { httpOnly: true, secure: false, sameSite: "lax", maxAge: 7 * 24 * 60 * 60 * 1000 })
+            .cookie("accessToken", accessToken, { httpOnly: true, secure: false, sameSite: "none", maxAge: 30 * 60 * 1000 })
+            .cookie("refreshToken", refreshToken, { httpOnly: true, secure: false, sameSite: "none", maxAge: 7 * 24 * 60 * 60 * 1000 })
             .json(
                 new apiResponse(200, {user:responseUser}, loggedInUser.role === "admin" ? "Admin login successfully" : "User login successfully")
             )
